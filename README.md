@@ -27,8 +27,6 @@ Ekstensi ini memerlukan izin berikut:
 8. **Tekan tombol "Fetch & Answer"** untuk mengambil dan menjawab kuis secara otomatis
 9. **Jawaban yang direkomendasikan akan ditampilkan** langsung di halaman kuis
 
-Berikut adalah tambahan to-do list untuk proyek Mentari Unpam Quiz Data Fetcher:
-
 ## ✅ To-Do List
 1. **Kirim jawaban otomatis** – Pastikan sistem dapat mengirimkan jawaban langsung ke halaman kuis
 
