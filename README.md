@@ -42,8 +42,6 @@ Ekstensi ini memerlukan izin berikut:
 
 Kontribusi sangat disambut! Jika Anda ingin membantu mengembangkan proyek ini 💡. Jika Anda memiliki ide atau saran, jangan ragu untuk membuka issue baru!  
 
----
-
 ## ⚠️ Disclaimer
 This script is provided for educational purposes only. Penggunaan ekstensi ini untuk tujuan lain sepenuhnya menjadi tanggung jawab pengguna. Kami tidak bertanggung jawab atas penyalahgunaan data atau pelanggaran kebijakan platform Mentari UNPAM.
 
