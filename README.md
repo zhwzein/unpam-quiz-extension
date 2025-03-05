@@ -3,10 +3,12 @@
 ![image](https://github.com/user-attachments/assets/d1811a34-43aa-4b89-a68f-a26536a86307)
 
 ## 📌 Deskripsi
-Mentari Unpam Quiz Data Fetcher adalah ekstensi Chrome yang memungkinkan pengguna untuk mengambil data kuis dari platform Mentari UNPAM (E-Learning). Ekstensi ini mengakses token otentikasi dari localStorage dan menggunakannya untuk mengambil data kuis melalui API Mentari UNPAM.
+Mentari Unpam Quiz Data Fetcher adalah ekstensi Chrome yang memungkinkan pengguna untuk mengambil data kuis dari platform Mentari UNPAM dan memberikan jawaban secara otomatis dengan bantuan AI. Ekstensi ini mengakses token otentikasi dari localStorage dan menggunakannya untuk mengambil serta memproses data kuis melalui API Mentari UNPAM.
 
 ## 🔧 Fitur
-- Mmeberikan Jawaban Otomatis
+- Menggunakan AI untuk memberikan jawaban secara otomatis
+- Menyimpan hasil pemrosesan di Chrome Storage
+- Menampilkan jawaban yang direkomendasikan langsung di halaman kuis
 
 ## 📜 Izin yang Dibutuhkan
 Ekstensi ini memerlukan izin berikut:
@@ -14,16 +16,16 @@ Ekstensi ini memerlukan izin berikut:
 - `scripting`: Menjalankan skrip dalam halaman web
 - `storage`: Menyimpan data dalam penyimpanan lokal Chrome
 
-Selain itu, ekstensi ini memiliki akses ke domain berikut:
-- `https://mentari.unpam.ac.id/*`
-- `https://mpzxsmlptc4kfw5qw2h6nat6iu0hvxiw.lambda-url.us-east-2.on.aws/*`
-
 ## 🚀 Cara Menggunakan
-1. **Pasang ekstensi** di Chrome
-2. **Buka halaman kuis** di platform Mentari UNPAM
-3. **Klik ikon ekstensi** di toolbar Chrome
-4. **Tekan tombol "Fetch Data"** untuk mengambil data kuis
-5. **Hasil kuis akan ditampilkan** di popup ekstensi setelah diproses oleh AI
+1. **Unduh ekstensi** dalam bentuk ZIP
+2. **Ekstrak file ZIP** ke dalam folder bernama `unpam-quiz-extension`
+3. **Buka Chrome**, lalu masuk ke `chrome://extensions/`
+4. **Aktifkan Mode Pengembang** di pojok kanan atas
+5. **Klik "Muat ekstensi tidak dipaketkan"**, lalu pilih folder `unpam-quiz-extension`
+6. **Buka halaman kuis** di platform Mentari UNPAM
+7. **Klik ikon ekstensi** di toolbar Chrome
+8. **Tekan tombol "Fetch & Answer"** untuk mengambil dan menjawab kuis secara otomatis
+9. **Jawaban yang direkomendasikan akan ditampilkan** langsung di halaman kuis
 
 ## ⚠️ Disclaimer
 This script is provided for educational purposes only. Penggunaan ekstensi ini untuk tujuan lain sepenuhnya menjadi tanggung jawab pengguna. Kami tidak bertanggung jawab atas penyalahgunaan data atau pelanggaran kebijakan platform Mentari UNPAM.
