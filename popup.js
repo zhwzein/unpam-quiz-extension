@@ -142,3 +142,68 @@ document.getElementById('fetchData').addEventListener('click', async () => {
         outputElement.textContent = 'Error: ' + error.message;
     }
 });
+
+document.getElementById('autoAnswer').addEventListener('click', async () => {
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (!tab) {
+        alert("No active tab found");
+        return;
+    }
+
+    chrome.storage.local.get("quizData", (result) => {
+        if (!result.quizData) {
+            alert("No quiz data available. Please fetch data first.");
+            return;
+        }
+
+        const aiAnswers = parseAiAnswers(result.quizData);
+        
+        chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            func: selectAnswers,
+            args: [aiAnswers]
+        });
+    });
+});
+
+function parseAiAnswers(quizData) {
+    const answerMap = {};
+    const lines = quizData.split("\n");
+
+    lines.forEach(line => {
+        const match = line.match(/^(\d+)\.\s([a-e])\./i);
+        if (match) {
+            const questionNumber = match[1];
+            const answerLetter = match[2].toUpperCase();
+            answerMap[questionNumber] = answerLetter;
+        }
+    });
+
+    return answerMap;
+}
+
+function selectAnswers(answerMap) {
+    document.querySelectorAll(".MuiPaper-root").forEach((questionDiv) => {
+        const questionHeader = questionDiv.querySelector("h6.MuiTypography-subtitle1");
+        if (!questionHeader) return;
+
+        const questionNumberMatch = questionHeader.textContent.match(/SOAL\s(\d+)/i);
+        if (!questionNumberMatch) return;
+
+        const questionNumber = questionNumberMatch[1];
+        const correctAnswer = answerMap[questionNumber];
+
+        if (!correctAnswer) return;
+
+        const choices = questionDiv.querySelectorAll(".MuiFormControlLabel-root");
+
+        choices.forEach(choice => {
+            const answerTextMatch = choice.textContent.trim().match(/^([A-E])/);
+            if (answerTextMatch && answerTextMatch[1] === correctAnswer) {
+                choice.querySelector("input").click();
+            }
+        });
+    });
+}
+
+
