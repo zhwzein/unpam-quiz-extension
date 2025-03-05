@@ -6,10 +6,7 @@
 Mentari Unpam Quiz Data Fetcher adalah ekstensi Chrome yang memungkinkan pengguna untuk mengambil data kuis dari platform Mentari UNPAM (E-Learning). Ekstensi ini mengakses token otentikasi dari localStorage dan menggunakannya untuk mengambil data kuis melalui API Mentari UNPAM.
 
 ## 🔧 Fitur
-- Mengambil data kuis dari platform Mentari UNPAM
-- Memformat data kuis agar lebih mudah dibaca
-- Menggunakan AI untuk memproses data kuis
-- Menyimpan hasil pemrosesan di Chrome Storage
+- Mmeberikan Jawaban Otomatis
 
 ## 📜 Izin yang Dibutuhkan
 Ekstensi ini memerlukan izin berikut:
