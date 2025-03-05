@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentari Quiz Data Fetcher</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 80vh;
+            color: white;
+            overflow: hidden;
+            padding: 12px;
+        }
+        .header {
+            top: 0;
+            margin-top: 50px;
+            width: 100%;
+            background-color: #121212;
+            text-align: center;
+        }
+        .container {
+            text-align: center;
+            flex-grow: 1;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .fetch-button {
+            background-color: #a48be0;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        .fetch-button:hover {
+            background-color: #9075c9;
+        }
+        .output-container {
+            background: #2a2a2a;
+            color: #cfcfcf;
+            font-size: 16px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/mentari.png" alt="Unpam Quiz Data Fetcher" width="250">
+        <h2>Unpam Quiz Data Fetcher</h2>
+    </div>
+    <div class="container">
+        <button id="fetchData" class="fetch-button">Fetch Quiz Data</button>
+        <pre id="output" class="output-container"></pre>
+    </div>
+    <div class="footer">Made with ❤️ by <a href="https://andaraz.com/" target="_blank" style="color: #cfcfcf;"> @zhwzein</a> </div> 
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Mentari Unpam Quiz Data Fetcher",
+    "version": "1.0",
+    "description": "Fetch quiz data from Mentari UNPAM API",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://mentari.unpam.ac.id/*",
+        "https://mpzxsmlptc4kfw5qw2h6nat6iu0hvxiw.lambda-url.us-east-2.on.aws/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "128": "icon/icon128.png"
+        }
+    }
+}
