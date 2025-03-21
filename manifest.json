@@ -10,7 +10,7 @@
     ],
     "host_permissions": [
         "https://mentari.unpam.ac.id/*",
-        "https://mpzxsmlptc4kfw5qw2h6nat6iu0hvxiw.lambda-url.us-east-2.on.aws/*"
+        "https://node.andaraz.com/*"
     ],
     "action": {
         "default_popup": "popup.html",

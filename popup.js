@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 document.getElementById('fetchData').addEventListener('click', async () => {
     const outputElement = document.getElementById('output');
-    
-    // outputElement.textContent = 'Fetching data... ⏳';
 
     try {
         const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -74,17 +72,18 @@ document.getElementById('fetchData').addEventListener('click', async () => {
         }
 
         const data = await response.json();
+        console.log("Fetched Quiz Data:", data);
 
         function formatQuiz(quizData) {
             if (!quizData || !quizData.data) {
                 return "Data kuis tidak tersedia.";
             }
-        
-            let result = `Judul: ${quizData.judul}\nDurasi: ${quizData.duration} detik\n\n`;
-        
+
+            let result = `Jawablah Quiz ini dengan benar. contoh format 1. A. Deskripsi\n\n`;
+
             quizData.data.forEach((soal, index) => {
                 result += `${index + 1}. ${soal.deskripsi.replace(/<[^>]*>/g, '')}\n\n`;
-        
+
                 if (soal.list_jawaban) {
                     const pilihan = 'abcdefghijklmnopqrstuvwxyz';
                     soal.list_jawaban.forEach((jawaban, i) => {
@@ -97,38 +96,19 @@ document.getElementById('fetchData').addEventListener('click', async () => {
         }
 
         const formattedQuiz = formatQuiz(data);
-
         outputElement.textContent = 'Processing quiz data with AI... 🤖';
 
-        const model = "gpt-3.5-turbo";
-        const payload = JSON.stringify({
-            messages: [{ role: "user", content: formattedQuiz }],
-            model: model
-        });
-
-        console.log("Payload:", payload);
-
-        fetch("https://mpzxsmlptc4kfw5qw2h6nat6iu0hvxiw.lambda-url.us-east-2.on.aws/process", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "User-Agent": "Postify/1.0.0"
-            },
-            body: payload,
-            mode: "cors"
+        fetch(`https://node.andaraz.com/ask?query=${formattedQuiz}`, {
+            method: "GET",
         })
-        .then(response => {
-            console.log("Raw Response:", response);
-            return response.json();
-        })
-        .then(data => {
-            console.log("Parsed Response:", data);
-            const aiResponse = data.choices[0].message.content;
-            
-            chrome.storage.local.set({ quizData: aiResponse }, () => {
+        .then(response => response.json())
+        .then(aiData => {
+            console.log("AI Response:", aiData);
+
+            chrome.storage.local.set({ quizData: aiData.result }, () => {
                 chrome.storage.local.get("quizData", (result) => {
                     if (result.quizData) {
-                        outputElement.textContent = result.quizData;
+                        outputElement.textContent = typeof result.quizData === "object" ? JSON.stringify(result.quizData, null, 2) : result.quizData;
                     }
                 });
             });
