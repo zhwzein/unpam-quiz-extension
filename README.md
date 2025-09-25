@@ -23,21 +23,18 @@ Ekstensi ini memerlukan izin berikut:
 3. **Buka Chrome**, lalu masuk ke `chrome://extensions/`
 4. **Aktifkan Mode Pengembang** di pojok kanan atas
 5. **Klik "Muat ekstensi tidak dipaketkan"**, lalu pilih folder `unpam-quiz-extension`
-6. **Buka halaman kuis** di platform Mentari UNPAM
-7. **Klik ikon ekstensi** di toolbar Chrome
-8. **Tekan tombol "Fetch & Answer"** untuk mengambil dan menjawab kuis secara otomatis
-9. **Jawaban yang direkomendasikan akan ditampilkan** langsung di halaman kuis
+6. **Buka halaman Mentari** di platform Mentari UNPAM
 
 ## ✅ To-Do List
-1. **Kirim jawaban otomatis** – Pastikan sistem dapat mengirimkan jawaban langsung ke halaman kuis
+1. **Kirim jawaban otomatis** – Pastikan sistem dapat mengirimkan jawaban langsung ke halaman kuis ✅
 
-2. **Proses pertanyaan dan jawaban dengan AI** – Kirim pertanyaan ke AI dan dapatkan jawaban terbaik
+2. **Proses pertanyaan dan jawaban dengan AI** – Kirim pertanyaan ke AI dan dapatkan jawaban terbaik ✅
 
-3. **Buat UI yang user-friendly** – Desain tampilan ekstensi agar mudah digunakan
+3. **Buat UI yang user-friendly** – Desain tampilan ekstensi agar mudah digunakan ✅
 
-4. **Tambahkan notifikasi atau log aktivitas** – Informasikan pengguna tentang status fetching dan jawaban
+4. **Tambahkan notifikasi atau log aktivitas** – Informasikan pengguna tentang status fetching dan jawaban ✅
 
-5. **Optimalkan performa** – Kurangi beban pemrosesan agar lebih ringan dan cepat
+5. **Optimalkan performa** – Kurangi beban pemrosesan agar lebih ringan dan cepat ✅
 
 ## 🤝 Kontribusi
 
