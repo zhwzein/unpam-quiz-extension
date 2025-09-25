@@ -1,21 +1,67 @@
 {
-    "manifest_version": 3,
-    "name": "Mentari Unpam Quiz Data Fetcher",
-    "version": "1.0",
-    "description": "Fetch quiz data from Mentari UNPAM API",
-    "permissions": [
-        "activeTab",
-        "scripting",
-        "storage"
-    ],
-    "host_permissions": [
-        "https://mentari.unpam.ac.id/*",
-        "https://node.andaraz.com/*"
-    ],
-    "action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "128": "icon/icon128.png"
-        }
+  "manifest_version": 3,
+  "name": "Next Mentari",
+  "version": "2.0.0",
+  "description": "Ekstensi untuk meningkatkan pengalaman belajar di MENTARI UNPAM dengan fitur pelacakan forum, asisten AI, bantuan quiz, dan manajemen presensi. Project dari Zenext.",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://mentari.unpam.ac.id/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://mentari.unpam.ac.id/*"],
+      "exclude_matches": ["https://mentari.unpam.ac.id/login"],
+      "js": [
+        "scripts/core/apiKeyManager.js",
+        "scripts/core/content.js",
+        "scripts/core/gemini.js"
+      ],
+      "css": ["styles/popup.css"]
+    },
+    {
+      "matches": ["https://mentari.unpam.ac.id/*"],
+      "js": ["scripts/home/home.js"]
+    },
+    {
+      "matches": ["https://mentari.unpam.ac.id/u-courses/*/exam/*"],
+      "js": ["scripts/quiz/quiz.js"]
+    },
+    {
+      "matches": ["https://mentari.unpam.ac.id/u-courses/*/kuesioner/*"],
+      "js": ["scripts/quiz/kuisioner.js"]
+    },
+    {
+      "matches": ["https://mentari.unpam.ac.id/u-courses/*/forum/*/topics/*"],
+      "js": ["scripts/forum/discus.js"]
+    },
+    {
+      "matches": ["https://my.unpam.ac.id/*"],
+      "exclude_matches": ["https://mentari.unpam.ac.id/login"],
+      "js": [
+        "scripts/presensi/presensi.js",
+        "scripts/presensi/QuickSurvey.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://my.unpam.ac.id/login",
+        "https://mentari.unpam.ac.id/login"
+      ],
+      "js": ["scripts/auth/pw.js"]
     }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "scripts/core/token.js",
+        "scripts/core/apiKeyManager.js",
+        "assets/gojo.jpeg"
+      ],
+      "matches": ["https://mentari.unpam.ac.id/*"],
+      "exclude_matches": ["https://mentari.unpam.ac.id/login"]
+    }
+  ],
+  "icons": {
+    "16": "assets/icon.png",
+    "48": "assets/icon.png",
+    "128": "assets/icon.png"
+  }
 }

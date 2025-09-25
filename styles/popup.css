@@ -1,0 +1,422 @@
+#token-runner-popup {
+    position: fixed;
+    left: 20px !important;
+    top: 20px;
+    background: #222831;
+    color: #ececec;
+    border-radius: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 10001;
+    backdrop-filter: saturate(180%) blur(6px);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    width: 460px;
+    max-width: 96%;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+#token-runner-popup.collapsed {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Card */
+.token-card-wrapper {
+    background: #1f2937;
+    border-radius: 10px;
+    padding: 18px 20px;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.token-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.token-user-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #f5f5f5;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+.token-role-badge {
+    background: rgba(0, 130, 255, 0.15);
+    color: #0082ff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    user-select: none;
+}
+
+.token-data-grid {
+    margin-bottom: 16px;
+}
+
+.token-data-item {
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    border: 1.5px solid rgba(255, 255, 255, 0.04);
+    font-size: 13px;
+}
+
+.token-info-section {
+    margin: 0;
+}
+
+.token-info-section p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(236, 236, 236, 0.85);
+}
+
+.token-key {
+    color: rgba(236, 236, 236, 0.55);
+    font-weight: 400;
+}
+
+.token-value {
+    color: rgba(236, 236, 236, 0.95);
+    font-weight: 500;
+}
+
+.token-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 12px;
+    opacity: 0.35;
+    user-select: none;
+}
+
+.token-footer a {
+    color: rgba(236, 236, 236, 0.75);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.token-footer a:hover {
+    color: rgba(236, 236, 236, 0.95);
+}
+
+.token-github-link {
+    margin-left: 10px;
+    opacity: 0.75;
+    transition: opacity 0.15s ease;
+}
+
+.token-github-link:hover {
+    opacity: 1;
+}
+
+.popup-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #222831;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10002;
+    user-select: none;
+}
+
+.popup-toggle:hover {
+    background: #2a3647;
+}
+
+.popup-toggle img {
+    width: 60%;
+    height: auto;
+    filter: brightness(0.9);
+}
+
+.popup-toggle:hover img {
+    transform: scale(1.05);
+}
+
+.popup-content {
+    padding-top: 14px;
+    max-height: 520px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+#token-runner-popup:not(.collapsed) .popup-content {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.popup-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between; /* biar tombol kanan tetap nempel kanan */
+    align-items: center;
+    padding: 0 18px 14px 64px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.popup-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    font-weight: 700;
+    color: #00aaff;
+    letter-spacing: 0.5px;
+    user-select: none;
+    white-space: nowrap;
+}
+
+#token-reset-btn {
+    background: #0084ff9b;
+    border: none;
+    cursor: pointer;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    user-select: none;
+    transition: background-color 0.15s ease;
+}
+
+#token-reset-btn:hover {
+    background: #0084ff62;
+}
+
+.token-loading-bar {
+    position: absolute;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background-color: #0082ff;
+    top: 0;
+    transition: width 0.25s ease;
+    display: none;
+    z-index: 10003;
+    border-radius: 0 0 6px 6px;
+}
+
+.token-loading-bar.active {
+    display: block;
+    width: 100%;
+}
+
+.token-tabs {
+    display: flex;
+    padding: 0 14px;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.token-tab {
+    padding: 7px 14px;
+    background: transparent;
+    border: none;
+    color: rgba(236, 236, 236, 0.55);
+    cursor: pointer;
+    font-size: 13px;
+    position: relative;
+    user-select: none;
+    transition: color 0.15s ease;
+}
+
+.token-tab:hover {
+    color: rgba(236, 236, 236, 0.85);
+}
+
+.token-tab.active {
+    color: #00aaff;
+    font-weight: 600;
+}
+
+.token-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 14px;
+    right: 14px;
+    height: 3px;
+    background: #00aaff;
+    border-radius: 3px 3px 0 0;
+}
+
+.token-tab-content {
+    display: none;
+    padding: 12px 14px;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #555 transparent;
+}
+
+.token-tab-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.token-tab-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.token-tab-content::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 6px;
+}
+
+.token-tab-content.active {
+    display: block;
+}
+
+.token-info-section {
+    /* margin-bottom: 12px; */
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(236, 236, 236, 0.85);
+}
+
+#forum-list, #student-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.forum-item, .student-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 12px 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.07);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.forum-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.forum-item-header, .student-item-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.forum-item-title, .student-item-title {
+    font-weight: 500;
+    color: rgba(236, 236, 236, 0.95);
+    margin: 0;
+    font-size: 14px;
+}
+
+.forum-item-code, .student-item-code {
+    font-size: 12px;
+    color: rgba(236, 236, 236, 0.55);
+    margin: 0;
+}
+
+.forum-item-link, .student-item-link {
+    display: inline-block;
+    color: rgba(236, 236, 236, 0.9);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 15px;
+    transition: color 0.15s ease;
+}
+
+.forum-item-link:hover {
+    color: #00aaff;
+}
+
+.forum-no-data, .student-no-data {
+    color: rgba(236, 236, 236, 0.55);
+    font-style: italic;
+    text-align: center;
+    padding: 14px;
+}
+
+.token-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.65);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    margin-right: 6px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.forum-item-link:hover .token-badge {
+    background: rgba(0, 130, 255, 0.15);
+    color: #0082ff;
+}
+
+pre {
+    background: rgba(20, 20, 20, 0.3);
+    padding: 10px;
+    border-radius: 6px;
+    max-height: 160px;
+    font-size: 12px;
+    color: rgba(236, 236, 236, 0.85);
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #555 transparent;
+}
+
+pre::-webkit-scrollbar {
+    width: 6px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 6px;
+}
+
+.student-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.student-details {
+    flex: 1;
+}
+
+.student-contact {
+    font-size: 12px;
+    color: rgba(236, 236, 236, 0.55);
+}
+
+.course-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(236, 236, 236, 0.9);
+}
